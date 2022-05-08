@@ -1,17 +1,17 @@
 <div class="container mt-5">
     <div class="card" style="padding: 20px;">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <form [formGroup]="loginForm">
             <div class="mb-3">
                 <label for="userName" class="form-label">Username:</label>
-                <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter username" ngModal>
+                <input type="text" class="form-control" formControlName="userName" name="userName" placeholder="Enter username" ngModal>
             </div>
             <div class="mb-3">
                 <label for="userPassword" class="form-label">Password:</label>
-                <input type="text" class="form-control" id="userPassword" name="userPassword" placeholder="Enter password" ngModal>
+                <input type="text" class="form-control" formControlName="userPassword" name="userPassword" placeholder="Enter password" ngModal>
             </div>
     
             <div>
-                <input type="submit" value="Login" class="btb btn-outline-primary mb-3 rounded form-control ">
+                <input type="submit" (click)="login()" class="btb btn-outline-primary mb-3 rounded form-control ">
             </div>
         </form>
     </div>

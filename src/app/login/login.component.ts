@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -9,13 +9,23 @@ import { UserService } from '../_services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm!: FormGroup;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.FormConfiguration()
   }
 
-  login(loginForm: NgForm) {
-    this.userService.login(loginForm.value).subscribe(
+  FormConfiguration(){
+    this.loginForm = new FormGroup({
+      userName: new FormControl(null),
+      userPassword: new FormControl(null)
+    })
+  }
+
+  login() {
+    this.userService.login(this.loginForm.value).subscribe(
       (response) => {
         console.log(response);
       },
