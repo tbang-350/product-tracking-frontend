@@ -11,6 +11,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { ContractorComponent } from './contractor/contractor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
