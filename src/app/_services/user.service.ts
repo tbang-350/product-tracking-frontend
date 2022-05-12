@@ -5,7 +5,7 @@ import { UserAuthService } from './user-auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export  class UserService {
 
   PATH_OF_API = "http://localhost:8080";
 
@@ -22,7 +22,7 @@ export class UserService {
       headers: this.requestHeader});
   }
 
-  public roleMatch(allowedRoles: string | any[]): boolean{
+  public roleMatch(allowedRoles: string | any[]): any{
     let isMatch = false; 
     const userRoles: any = this.userAuthService.getRoles();
 

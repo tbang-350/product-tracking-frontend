@@ -5,11 +5,12 @@ import { ContractorComponent } from './contractor/contractor.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
   {path: 'home', component:HomeComponent},
-  {path: 'admin', component:AdminComponent},
-  {path: 'contractor', component:ContractorComponent},
+  {path: 'admin', component:AdminComponent, canActivate:[AuthGuard], data:{roles:['Admin']}},
+  {path: 'contractor', component:ContractorComponent, canActivate:[AuthGuard], data:{roles:['Contractor']}},
   {path: 'login', component:LoginComponent},
   {path: 'forbidden', component:ForbiddenComponent}
 ];
