@@ -15,9 +15,25 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link active" *ngIf="userService.roleMatch(['Admin'])" aria-current="page" routerLink="/view-contractor">View Contractors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" *ngIf="userService.roleMatch(['Admin'])" aria-current="page" routerLink="/view-contractor-map">View Contractors Map</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link active" *ngIf="userService.roleMatch(['Contractor'])" aria-current="page" routerLink="/contractor">Contractor Dashboard</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" *ngIf="userService.roleMatch(['Contractor'])" aria-current="page" routerLink="/view-employee">View Employees</a>
+          </li>
           
+          <li class="nav-item">
+            <a class="nav-link active" *ngIf="userService.roleMatch(['Contractor'])" aria-current="page" routerLink="/view-employee-map">View Employees Map</a>
+          </li>
+
         </ul>
         <button *ngIf="!isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
         <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
